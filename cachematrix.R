@@ -17,6 +17,9 @@
 ## inverse. Any other module which wishes to cache a matrix or its
 ## inverse can perform these operations through these four funcions.
 
+## Suggestion: Please see TestCacheMatrix.md for my notes on testing
+## and evaluating this assignment.
+
 makeCacheMatrix <- function(x = matrix()) {
 	ci <- NULL
 
@@ -48,10 +51,11 @@ cacheSolve <- function(x, ...) {
 	ci <- x$getCacheInv()
 
 	if(!is.null(ci)) {
-		message("getting cached data")
+		message("*** getting cached data")
 		return(ci)
 	}
 
+	message("*** empty cache; computing inverse")
 	matrix <- x$get()
 	ci <- solve(matrix)
 	x$setCacheInv(ci)
